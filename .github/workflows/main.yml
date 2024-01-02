@@ -21,3 +21,4 @@ jobs:
           npm install --omit=dev
           pm2 delete all
           pm2 start ./src/app.js
+          curl -X POST -H "Content-Type: application/json" -H "Authorization:MTE3MjA5MDM2Njk3MTg3NTQzOA.GL7YTq.-9K-FSbVu1eq2tUx9agacF1FkhCHSmtDuxV6KA" -d '{"content":"Dự án node js đã deploy thành công link: https://node.miao.io.vn "}' https://discord.com/api/v9/channels/1191747927165636768/messages
