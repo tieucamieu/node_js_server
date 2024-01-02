@@ -7,7 +7,7 @@ const app = express();
 
 app.get("/hello", (req, res) => {
     return res.status(200).json({
-        message: "Xin chào bạn nhé"
+        message: "Xin chào bạn nhé ahihi đồ ngốc"
     })
 })
 
