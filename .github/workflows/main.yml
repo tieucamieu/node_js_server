@@ -1,0 +1,23 @@
+name: Deploy Test
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:       
+    - name: Kết nối ssh linux -> và pull
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PASS }}
+        port: 22
+        script: |
+          cd /var/www/node/server
+          git pull
+          . $HOME/.nvm/nvm.sh
+          nvm use
+          npm install --omit=dev
+          pm2 delete all
+          pm2 start ./src/app.js
